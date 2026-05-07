@@ -1,44 +1,59 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Cpu, Rocket } from "lucide-react";
+import { Cpu, GraduationCap, Rocket } from "lucide-react";
 
 const trustItems = [
   {
     icon: GraduationCap,
     title: "Ingeniería Informática",
-    description: "Formación sólida en Ingeniería Informática con mención en Inteligencia Artificial, combinando fundamentos teóricos con aplicación práctica.",
+    description:
+      "Formación en Ingeniería Informática con foco en Inteligencia Artificial, combinando fundamentos técnicos con aplicación práctica.",
   },
   {
     icon: Cpu,
     title: "Especialización en IA",
-    description: "Conocimiento profundo en modelos de lenguaje, visión por computador y procesamiento de datos para crear soluciones inteligentes.",
+    description:
+      "Trabajo con modelos de lenguaje, automatización y procesamiento de datos para crear soluciones útiles en contextos reales.",
   },
   {
     icon: Rocket,
     title: "Despliegue Real",
-    description: "Experiencia llevando proyectos desde la idea hasta producción, con arquitecturas escalables y buenas prácticas de ingeniería.",
+    description:
+      "Me enfoco en llevar ideas a productos funcionales, con buenas prácticas, claridad técnica y una base lista para crecer.",
   },
 ];
 
 export function TrustSection() {
   return (
-    <section id="trust" className="px-6 py-28 md:py-36">
-      <div className="mx-auto max-w-5xl">
+    <section id="trust" className="bg-[#d7c6c8] px-4 py-10 md:px-6">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-[#a41420]/35 bg-[#fffdfb] px-6 py-12 shadow-2xl shadow-[#4e2b2e]/10 md:px-10 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-12 grid gap-6 md:grid-cols-[0.7fr_1fr] md:items-end"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-            Sobre mí
+          <div>
+            <p className="mb-3 text-sm font-black uppercase text-[#a41420]">Sobre mí</p>
+            <h2 className="text-4xl font-black leading-none text-[#4e2b2e] md:text-6xl">
+              Simple, técnico, directo
+            </h2>
+          </div>
+          <p className="max-w-xl text-base leading-relaxed text-[#7d6868] md:ml-auto">
+            Combino criterio técnico, diseño claro y ejecución práctica para que cada proyecto se
+            vea bien y funcione bien.
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-            Preparado para el impacto
-          </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 h-px origin-left bg-[#a41420]"
+        />
+
+        <div className="grid gap-px overflow-hidden rounded-[2rem] border border-[#a41420]/25 bg-[#a41420]/15 md:grid-cols-3">
           {trustItems.map((item, i) => (
             <motion.div
               key={item.title}
@@ -46,13 +61,14 @@ export function TrustSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="rounded-2xl border border-border/50 bg-card p-8 text-center transition-all duration-300 hover:border-border hover:shadow-lg hover:shadow-primary/5"
+              whileHover={{ y: -6 }}
+              className="bg-[#fffdfb] p-7"
             >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
-                <item.icon className="h-6 w-6 text-primary" />
+              <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#f6eeee]">
+                <item.icon className="h-5 w-5 text-[#a41420]" />
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-foreground">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+              <h3 className="mb-3 text-xl font-black text-[#4e2b2e]">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-[#7d6868]">{item.description}</p>
             </motion.div>
           ))}
         </div>

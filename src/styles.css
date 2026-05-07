@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — Apple-style personal landing page
+ * Design system — polished personal landing page
  */
 
 @theme inline {
@@ -57,31 +57,31 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.97 0.001 264);
-  --foreground: oklch(0.15 0.01 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.01 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 264);
-  --primary: oklch(0.55 0.2 260);
+  --radius: 1rem;
+  --background: oklch(0.975 0.009 235);
+  --foreground: oklch(0.16 0.018 245);
+  --card: oklch(0.995 0.003 235);
+  --card-foreground: oklch(0.16 0.018 245);
+  --popover: oklch(0.995 0.003 235);
+  --popover-foreground: oklch(0.16 0.018 245);
+  --primary: oklch(0.54 0.18 255);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.005 264);
-  --secondary-foreground: oklch(0.15 0.01 264);
-  --muted: oklch(0.96 0.005 264);
-  --muted-foreground: oklch(0.5 0.02 264);
-  --accent: oklch(0.96 0.005 264);
-  --accent-foreground: oklch(0.15 0.01 264);
+  --secondary: oklch(0.94 0.018 230);
+  --secondary-foreground: oklch(0.18 0.02 245);
+  --muted: oklch(0.94 0.012 230);
+  --muted-foreground: oklch(0.47 0.026 245);
+  --accent: oklch(0.94 0.035 185);
+  --accent-foreground: oklch(0.18 0.024 245);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.005 264);
-  --input: oklch(0.92 0.005 264);
-  --ring: oklch(0.55 0.2 260);
-  --apple-bg: oklch(0.97 0.001 264);
-  --apple-text: oklch(0.15 0.01 264);
-  --apple-accent: oklch(0.55 0.2 260);
-  --apple-gray: oklch(0.55 0.01 264);
-  --apple-light: oklch(0.97 0.001 264);
+  --border: oklch(0.88 0.014 235);
+  --input: oklch(0.88 0.014 235);
+  --ring: oklch(0.54 0.18 255);
+  --apple-bg: oklch(0.975 0.009 235);
+  --apple-text: oklch(0.16 0.018 245);
+  --apple-accent: oklch(0.54 0.18 255);
+  --apple-gray: oklch(0.52 0.018 245);
+  --apple-light: oklch(0.985 0.006 235);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -102,11 +102,24 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: var(--color-background);
+    background:
+      linear-gradient(135deg, oklch(0.985 0.014 215) 0%, transparent 28%),
+      linear-gradient(225deg, oklch(0.965 0.02 165) 0%, transparent 24%), var(--color-background);
     color: var(--color-foreground);
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Inter', sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: oklch(0.82 0.11 185);
+    color: oklch(0.16 0.018 245);
   }
 }

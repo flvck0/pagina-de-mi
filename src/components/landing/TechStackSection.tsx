@@ -11,24 +11,33 @@ const techStack = [
 
 export function TechStackSection() {
   return (
-    <section id="stack" className="bg-card px-6 py-28 md:py-36">
-      <div className="mx-auto max-w-5xl">
+    <section id="stack" className="bg-[#d7c6c8] px-4 py-10 md:px-6">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-[#a41420]/45 bg-[#4e2b2e] px-6 py-12 text-[#fffdfb] shadow-2xl shadow-[#4e2b2e]/15 md:px-10 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-10 grid gap-6 md:grid-cols-[0.7fr_1fr] md:items-end"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
-            Tecnologías
+          <div>
+            <p className="mb-3 text-sm font-black uppercase text-[#ffccd0]">Stack</p>
+            <h2 className="text-4xl font-black leading-none md:text-6xl">Herramientas claras</h2>
+          </div>
+          <p className="max-w-xl text-base leading-relaxed text-[#e9d7d5] md:ml-auto">
+            Uso tecnología moderna cuando ayuda al producto, no para decorar el problema.
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-            Stack tecnológico
-          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 md:gap-6">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 h-px origin-left bg-[#ffccd0]"
+        />
+
+        <div className="flex flex-wrap gap-3">
           {techStack.map((tech, i) => (
             <motion.div
               key={tech.name}
@@ -36,14 +45,11 @@ export function TechStackSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-border/50 bg-apple-bg/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-border hover:shadow-lg hover:shadow-primary/5"
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="inline-flex items-center gap-3 rounded-full border border-[#ffccd0]/30 bg-white/8 px-4 py-3 backdrop-blur-sm"
             >
-              <span className="text-3xl transition-transform duration-300 group-hover:scale-110 md:text-4xl">
-                {tech.icon}
-              </span>
-              <span className="text-xs font-medium text-muted-foreground md:text-sm">
-                {tech.name}
-              </span>
+              <span className="text-xl">{tech.icon}</span>
+              <span className="text-sm font-bold">{tech.name}</span>
             </motion.div>
           ))}
         </div>
